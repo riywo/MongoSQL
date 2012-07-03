@@ -1,0 +1,22 @@
+--- 
+- 
+  data: 
+    city: shibuya
+    id: 1
+    prefecture: tokyo
+  name: 1
+  schema: locations
+- 
+  data: 
+    city: roppongi
+    id: 2
+    prefecture: tokyo
+  name: 2
+  schema: locations
+- 
+  data: 
+    city: uminomukou
+    id: 3
+    prefecture: kanagawa
+  name: 3
+  schema: locations

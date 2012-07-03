@@ -1,0 +1,43 @@
+--- 
+- 
+  data: 
+    friend_id: 2
+    user_id: 1
+  name: 1_2
+  schema: friends_map
+- 
+  data: 
+    friend_id: 4
+    user_id: 1
+  name: 1_4
+  schema: friends_map
+- 
+  data: 
+    friend_id: 1
+    user_id: 3
+  name: 3_1
+  schema: friends_map
+- 
+  data: 
+    friend_id: 2
+    user_id: 3
+  name: 3_2
+  schema: friends_map
+- 
+  data: 
+    friend_id: 4
+    user_id: 3
+  name: 3_4
+  schema: friends_map
+- 
+  data: 
+    friend_id: 1
+    user_id: 4
+  name: 4_1
+  schema: friends_map
+- 
+  data: 
+    friend_id: 2
+    user_id: 4
+  name: 4_2
+  schema: friends_map

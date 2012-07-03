@@ -1,0 +1,37 @@
+--- 
+- 
+  data: 
+    age: 20
+    id: 1
+    location_id: 1
+    nickname: hidek
+    some_flg: 1
+  name: 1
+  schema: users
+- 
+  data: 
+    age: 30
+    id: 2
+    location_id: 2
+    nickname: zigorou
+    some_flg: ~
+  name: 2
+  schema: users
+- 
+  data: 
+    age: 30
+    id: 3
+    location_id: 3
+    nickname: nekokak
+    some_flg: ~
+  name: 3
+  schema: users
+- 
+  data: 
+    age: 12
+    id: 4
+    location_id: 1
+    nickname: xaicron
+    some_flg: 2
+  name: 4
+  schema: users

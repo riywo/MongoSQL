@@ -26,9 +26,19 @@ use inc::Module::Install;
 
 all_from 'lib/MongoSQL.pm';
 
+requires 'Data::Validator';
+requires 'Data::Clone';
+requires 'Class::Accessor::Lite';
+requires 'Hash::Flatten';
+requires 'DBIx::Handler';
+requires 'List::MoreUtils';
+requires 'Hash::Merge';
+requires 'DBD::mysql';
 
 test_requires 'Test::More'     => '0.88';
 test_requires 'Test::Requires' => '0.06';
+test_requires 'Test::mysqld';
+test_requires 'Test::Fixture::DBI';
 
 auto_set_repository;
 

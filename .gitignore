@@ -25,3 +25,5 @@ cover_db*
 *.gcno
 *.gcov
 *.stackdump
+carton.lock
+local/
