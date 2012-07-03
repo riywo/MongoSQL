@@ -54,7 +54,8 @@ sub update_tables {
 
     $tables->{users}->{location_id} = $self->_master_id('locations.id', $tables->{locations})
         if exists $tables->{locations};
-    $self->update_table(table => 'users', set => $tables->{users}, where => { id => $id });
+    $self->update_table(table => 'users', set => $tables->{users}, where => { id => $id })
+        if exists $tables->{users};
 
     if (exists $tables->{friends_map}) {
         $self->delete_table(table => 'friends_map', where => { user_id => $id });

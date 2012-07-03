@@ -249,7 +249,7 @@ sub remove {
 sub validate_remove {
     my $self = shift;
     state $rule = Data::Validator->new(
-        object      => { isa => 'HashRef' },
+        _id         => { isa => 'Str' },
         current     => { isa => 'HashRef' },
     );
     my $args = $rule->validate(@_);

@@ -73,7 +73,7 @@ sub select_by_id {
     my $expr = "friends_map.user_id, GROUP_CONCAT(friends_map.friend_id) AS friend_id";
     my ($where, @bind) = $self->_make_where_id(_id => $args->{_id});
     my $rows = $self->handler->dbh->selectall_arrayref(
-        "SELECT $expr FROM ".$self->table." WHERE $where $for_update GROUP BY user_id", { Slice => +{} }, @bind);
+        "SELECT $expr FROM ".$self->table." WHERE $where GROUP BY user_id $for_update", { Slice => +{} }, @bind);
 
     my $merge_rows = +{};
     for my $row (@$rows) {
@@ -156,7 +156,7 @@ sub _update_push {
     my $args = $rule->validate(@_);
 
     my @friends = defined $args->{current} ? @{$args->{current}} : ();
-    push @friends, $args->{value} unless(grep { $_->{_id} eq $args->{value}->{_id} } @friends);
+    push @friends, $args->{value} unless(grep { $_ eq $args->{value} } @friends);
     return \@friends;
 }
 
@@ -169,7 +169,7 @@ sub _update_pull {
     my $args = $rule->validate(@_);
 
     my @friends = defined $args->{current} ? @{$args->{current}} : ();
-    @friends = grep { $_->{_id} ne $args->{value}->{_id} } @friends;
+    @friends = grep { $_ ne $args->{value} } @friends;
     return \@friends;
 }
 
