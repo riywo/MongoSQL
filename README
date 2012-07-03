@@ -1,0 +1,39 @@
+This is Perl module MongoSQL.
+
+INSTALLATION
+
+Type the following command:
+
+    $ curl -L http://cpanmin.us | perl - MongoSQL
+
+Or install cpanm and then run the following command to install
+MongoSQL:
+
+    $ cpanm MongoSQL
+
+If you get an archive of this distribution, unpack it and build it
+as per the usual:
+
+    $ tar xzf MongoSQL-$version.tar.gz
+    $ cd MongoSQL-$version
+    $ perl Makefile.PL
+    $ make && make test
+
+Then install it:
+
+    $ make install
+
+DOCUMENTATION
+
+MongoSQL documentation is available as in POD. So you can do:
+
+    $ perldoc MongoSQL
+
+to read the documentation online with your favorite pager.
+
+LICENSE AND COPYRIGHT
+
+Copyright (c) 2012, riywo. All rights reserved.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
