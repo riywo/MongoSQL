@@ -3,7 +3,7 @@ use parent qw/Exporter/;
 use Test::More 0.98;
 use Test::mysqld;
 use Test::Fixture::DBI;
-our @EXPORT = qw(dbh);
+our @EXPORT = qw(dbh reset_test_data);
 
 {
     # utf8 hack.
@@ -36,10 +36,7 @@ my $MYSQLD;
             database => 't/schema.yaml',
         );
 
-        construct_fixture(
-            dbh     => $dbh,
-            fixture => "t/fixture_$_.yaml",
-        ) for (qw/users locations friends_map/);
+        reset_test_data();
     }
 }
 
@@ -47,9 +44,21 @@ END {
     undef $MYSQLD;
 }
 
+my $dbh;
 sub dbh {
-    my $dsn = $ENV{TEST_DSN};
-    DBI->connect( $dsn, '', '', +{ AutoCommit => 0, RaiseError => 1, } );
+    unless (defined $dbh) {
+        my $dsn = $ENV{TEST_DSN};
+        $dbh = DBI->connect( $dsn, '', '', +{ AutoCommit => 0, RaiseError => 1, } );
+    }
+    return $dbh;
+}
+
+sub reset_test_data {
+    my $dbh = dbh();
+    construct_fixture(
+        dbh     => $dbh,
+        fixture => "t/fixture_$_.yaml",
+    ) for (qw/users locations friends_map/);
 }
 
 1;
